@@ -21,3 +21,17 @@ require("lazy").setup(plugins, opts)
 vim.schedule(function()
 	require("mappings")
 end)
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
+
+function _G.foldtext()
+	local foldstart = vim.v.foldstart
+	local foldend = vim.v.foldend
+	local foldtext = vim.fn.getline(foldstart)
+	local hiddenLines = foldend - foldstart
+	foldtext = foldtext .. " +" .. hiddenLines .. " lines"
+	return foldtext
+end
+vim.opt.foldtext = "v:lua.foldtext()"

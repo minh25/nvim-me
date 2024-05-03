@@ -5,6 +5,7 @@ local plugins = {
 	require("options.nvim-tree"),
 	require("options.mason"),
 	require("options.conform"),
+	require("options.nvim-treesitter"),
 }
 
 return plugins

@@ -5,6 +5,12 @@ map("n", "<C-h>", "<C-w>h", { desc = "Switch Window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "Switch Window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "Switch Window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "Switch Window up" })
+map(
+	"n",
+	"<leader>fm",
+	"<cmd>lua require('conform').format({ async = true, lsp_fallback = true }) <cr>",
+	{ desc = "Format buffer" }
+)
 
 map("i", "jk", "<ESC>")
 
